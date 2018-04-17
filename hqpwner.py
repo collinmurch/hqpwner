@@ -128,18 +128,17 @@ def results(a1, a2):
         # If first method returns bad answers, trust method 2
         if len(a1) is (3 or 0):
             for x in a2:
-                # Cyan
-                print("\n\nLikely: \33[36;1m%s\033[0m\n" %x)
+                # Magenta
+                print("\n\nLikely: \33[35;1m%s\033[0m\n" %x)
         
         # Cross reference answers from method 1 to those from method 2
-        # If cross-reference succeedes, print any correct answer(s)
-        # Otherwise, print all in answers in a1
         ref=[x for x in a1 if x in a2]
 
+        # If no results, print all answers in a1
         if len(ref) is 0:
             for x in a1: 
-                # Magenta
-                print("\n\nSomewhat Likely: \33[35;1m%s\033[0m\n" %x)
+                # Cyan
+                print("\n\nSomewhat Likely: \33[36;1m%s\033[0m\n" %x)
         else:
             for x in ref:
                 # Green
