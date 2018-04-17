@@ -72,6 +72,7 @@ def scanner(query, q, a):
 
         print("Using delimiter: %s" %deli)
 
+        # Count all instances by splitting by delimiter
         count[i]=len(str(r).lower().split(deli))-1
         print(a[i]+': '+str(count[i]))
     
@@ -171,7 +172,8 @@ def main():
     # Pipe picture to tesseract, ignore text returned to console
     subprocess.Popen([tesseractPath, picPath, 'output', '-l', 'eng'], 
         stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL).wait()
-    file=open('output.txt').read()
+    with open('./output.txt') as data:
+        file=data.read()
 
     # Check if file is empty (signaling a parsing error)
     if ''.join(file.split()) is '':
