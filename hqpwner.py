@@ -32,7 +32,9 @@ def googler(query, q, a):
 
 # Outputs amount of instances of each answer in results
 def scanner(query, q, a):
-    
+    # Underline
+    print("\n\33[4mSCAN METHOD\033[0m")
+
     # Each count item corresponds to an answer (a[0]: counter[0], etc.)
     count=[0]*3
 
@@ -49,11 +51,16 @@ def scanner(query, q, a):
         # Split by words
         words = a[i].split(' ')
 
-        # Use last word of answer if multiple words, or use first if second word is shared
+        # If 2 or more words long, use second word, otherwise use last word
+        # If delimiter is in the question or other answers, use first word
         try:
-            deli=words[-1].lower()
+            if len(words) > 2:
+                deli=words[1].lower()
+            else:
+                deli=words[-1].lower()
             if deli in a[i-1].lower() or deli in a[i-2].lower() or deli in q.lower():
                 deli=words[0].lower()
+
         except:
             print("Using full term as delimiter.")
             deli=a[i].lower()
@@ -85,6 +92,8 @@ def scanner(query, q, a):
 
 # Outputs the amount of google results for a given question + answer
 def counter(q, a):
+    # Underline
+    print("\n\33[4mRESULTS METHOD\033[0m")
 
     # Each count item corresponds to an answer (a[0]: counter[0], etc.)
     count=[0]*3
@@ -127,20 +136,20 @@ def results(a1, a2):
     # If both return 0 or both return 3, it didn't work
     if len(a1)+len(a2) is not (0 or 6):
 
+        # Cross reference answers from method 1 to those from method 2
+        ref=[x for x in a1 if x in a2]
+
         # If first method returns bad answers, trust method 2
         if len(a1) is (3 or 0):
             for x in a2:
                 # Magenta
                 print("\n\nSomewhat Likely: \33[35;1m%s\033[0m\n" %x)
-        
-        # Cross reference answers from method 1 to those from method 2
-        ref=[x for x in a1 if x in a2]
-
-        # If no results, print all answers in a1
-        if len(ref) is 0:
+        # If no cross reference results, print all answers in a1
+        elif len(ref) is 0:
             for x in a1: 
                 # Cyan
                 print("\n\nLikely: \33[36;1m%s\033[0m\n" %x)
+        # Otherwise, print results from cross reference
         else:
             for x in ref:
                 # Green
@@ -193,7 +202,7 @@ def main():
     print("\n"+question)
     print(options[0])
     print(options[1])
-    print(options[2]+"\n\n")
+    print(options[2]+"\n")
 
     # URI encode the question
     encoded=urllib.parse.quote_plus(question)
@@ -201,7 +210,6 @@ def main():
     # Get the answer using the various methods
     googler(encoded, question, options)
     answers1=scanner(encoded, question, options)
-    print('\n')
     answers2=counter(question, options)
 
     # Analyze results     
