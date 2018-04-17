@@ -6,7 +6,8 @@ import subprocess, sys, urllib.request, urllib.parse, json
 
 # Grab stored tokens from JSON file (for ease of Github use)
 try:
-    tokens=json.load(open('tokens.json'))
+    with open('tokens.json') as data:
+        tokens=json.load(data)
     key=tokens["key"]
     cx=tokens["cx"]
 except:
