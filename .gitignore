@@ -3,3 +3,4 @@ output.txt
 capture.png
 sample-data
 .DS_Store
+.gitattributes
