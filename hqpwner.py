@@ -119,36 +119,30 @@ def counter(q, a):
     print("Returning: ", answers)
     return answers
 
+# Determine best answers from gathered data
 def results(a1, a2):
 
     # If both return 0 or both return 3, it didn't work
     if len(a1)+len(a2) is not (0 or 6):
+
+        # If first method returns bad answers, trust method 2
         if len(a1) is (3 or 0):
             for x in a2:
                 # Magenta
                 print("\n\nSomewhat Likely: \33[35;1m%s\033[0m" %x)
-        elif len(a2) is (3 or 0):
-            for x in a1:
-                # Cyan
-                print("\n\nPretty Likely: \33[36;1m%s\033[0m" %x)
+        
+        # Cross reference answers from method 1 to those from method 2
+        # If no matches, then trust method one's answers
         else:
             for x in a1:
                 if x in a2:
                     # Green
-                    print("\n\nExtremely likely: \33[32;1m%s\033[0m" %x)
+                    print("\n\nExtremely Likely: \33[32;1m%s\033[0m" %x)
+                else:
+                    # Cyan
+                    print("\n\nLikely: \33[36;1m%s\033[0m" %x)
     else:
         print("\n\nNo conclusions could be drawn from gathered data.")
-    
-    """
-    if len(a1) is 1:
-        print("\n\nBest answer: \33[91;1m%s" %a1[0])
-    elif len(a1) is 0 or len(a1) is 3:
-        print("\n\nBest answer: \33[91;1m%s" %a2[0])
-    else:
-        for x in a1:
-            if x in a2:
-                print("\n\nBest answer: \33[91;1m%s" %x)
-    """
 
 def main():
 
@@ -208,15 +202,5 @@ def main():
     answers2=counter(question, options)
         
     results(answers1, answers2)
-    """ 
-    # Trust the scanner analysis the most, then the counter analysis
-    # If neither, tell user -- all answers in red
-    if a1 is not False:
-        print("\n\nBest answer: \33[91;1m%s" %a1)
-    elif a2 is not False:
-        print("\n\nBest answer: \33[91;1m%s" %a2)
-    else:
-        print("\n\nThis question is too tough. Sorry!")
-    """
 
 main()
