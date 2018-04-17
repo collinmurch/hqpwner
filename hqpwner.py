@@ -129,7 +129,7 @@ def results(a1, a2):
         if len(a1) is (3 or 0):
             for x in a2:
                 # Magenta
-                print("\n\nLikely: \33[35;1m%s\033[0m\n" %x)
+                print("\n\nSomewhat Likely: \33[35;1m%s\033[0m\n" %x)
         
         # Cross reference answers from method 1 to those from method 2
         ref=[x for x in a1 if x in a2]
@@ -138,7 +138,7 @@ def results(a1, a2):
         if len(ref) is 0:
             for x in a1: 
                 # Cyan
-                print("\n\nSomewhat Likely: \33[36;1m%s\033[0m\n" %x)
+                print("\n\nLikely: \33[36;1m%s\033[0m\n" %x)
         else:
             for x in ref:
                 # Green
