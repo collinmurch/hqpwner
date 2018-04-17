@@ -11,6 +11,7 @@ try:
     cx=tokens["cx"]
 except:
     print("Error parsing tokens.json. Does it exist?")
+    sys.exit()
 
 # Warn user if they haven't updated their file with the correct tokens
 if key is '' or cx is '':
@@ -21,8 +22,9 @@ if key is '' or cx is '':
 gURI='https://www.googleapis.com/customsearch/v1?key=%s&cx=%s&q=' %(key, cx)
 google='https://www.google.com/search?q='
 
-# Default screen capture path
+# Default tesseract and screen capture path
 picPath='./capture.png'
+tesseractPath='/usr/local/bin/tesseract'
 
 # Open google to the question page using user's default browser
 def googler(query, q, a):
@@ -157,7 +159,7 @@ def main():
         sys.exit()
 
     # Pipe picture to tesseract, ignore text returned to console
-    subprocess.Popen(['/usr/local/bin/tesseract', picPath, 'output', '-l', 'eng'], 
+    subprocess.Popen([tesseractPath, picPath, 'output', '-l', 'eng'], 
         stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL).wait()
     file=open('output.txt').read()
 
