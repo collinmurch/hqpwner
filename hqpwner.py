@@ -6,7 +6,7 @@ import subprocess, sys, urllib.request, urllib.parse, json
 
 # Grab stored tokens from JSON file (for ease of Github use)
 try:
-    with open('tokens.json') as data:
+    with open('./tokens.json') as data:
         tokens=json.load(data)
     key=tokens["key"]
     cx=tokens["cx"]
@@ -26,6 +26,7 @@ google='https://www.google.com/search?q='
 # Default tesseract and screen capture path
 picPath='./capture.png'
 tesseractPath='/usr/local/bin/tesseract'
+outputPath='./output.txt'
 
 # Open google to the question page using user's default browser
 def googler(query, q, a):
@@ -172,7 +173,7 @@ def main():
     # Pipe picture to tesseract, ignore text returned to console
     subprocess.Popen([tesseractPath, picPath, 'output', '-l', 'eng'], 
         stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL).wait()
-    with open('./output.txt') as data:
+    with open(outputPath) as data:
         file=data.read()
 
     # Check if file is empty (signaling a parsing error)
