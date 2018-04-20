@@ -1,8 +1,8 @@
 # hqpwner
 
-![hqimage](https://i.imgur.com/r6a6Ss9.png) ![botimage](https://imgur.com/a/L2uGliP)
+![botimage](https://i.imgur.com/Ty0RZH4.png)
 
-A simple python script built to interact with Philips Hue lights.
+A python script to both parse and analyze out trivia questions from the game "HQ Trivia".
 
 
 To use this script, a **"tokens.json"** file is required, which looks like:
