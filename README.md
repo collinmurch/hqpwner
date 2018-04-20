@@ -1,6 +1,6 @@
 # hqpwner
 
-A python script to both parse and analyze out trivia questions from the game "HQ Trivia".
+A python script to both parse and analyze trivia questions from the game "HQ Trivia".
 
 *Only MacOS is currently supported.*
 
