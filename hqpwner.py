@@ -62,7 +62,6 @@ def scanner(query, q, a):
                 deli=words[-1].lower()
             if deli in a[i-1].lower() or deli in a[i-2].lower() or deli in q.lower():
                 deli=words[0].lower()
-
         except:
             print("Using full term as delimiter.")
             deli=a[i].lower()
