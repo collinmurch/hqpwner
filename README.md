@@ -4,6 +4,7 @@
 
 A python script to both parse and analyze out trivia questions from the game "HQ Trivia".
 
+*Only MacOS is currently supported.*
 
 To use this script, a **"tokens.json"** file is required, which looks like:
 ```
@@ -12,8 +13,6 @@ To use this script, a **"tokens.json"** file is required, which looks like:
     "cx":"someidsomeidsomeid"
 }
 ```
-
-*Only MacOS is currently supported.*
 
 ---
 *Setup example:*
