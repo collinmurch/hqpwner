@@ -12,7 +12,7 @@ To use this script, a **"tokens.json"** file is required, which looks like:
 }
 ```
 
-Both the key and CSE ID can be found on Google's CSE API page.
+Both the key and CSE ID can be found on [Google's CSE API page](https://developers.google.com/custom-search/json-api/v1/overview).
 
 ---
 *Setup example:*
