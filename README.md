@@ -14,6 +14,9 @@ To use this script, a **"tokens.json"** file is required, which looks like:
 
 Both the key and CSE ID can be found on [Google's CSE API page](https://developers.google.com/custom-search/json-api/v1/overview).
 
+Read more at: [medium article](https://medium.com/@collinmurch/a-modern-approach-to-cracking-trivia-3c24f357fd5e)
+Or my follow-up: [other medium article](https://medium.com/@collinmurch/a-new-approach-to-my-hq-trivia-bot-d9a8d1b52d9f)
+
 ---
 *Setup example:*
 
