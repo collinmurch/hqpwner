@@ -1,3 +1,5 @@
+#!/usr/local/bin/python3
+
 # # # # # # # # # # # # # # # # # # # # # # # # #
 # Written by Collin Murch. Assumes OS is MacOS. #
 # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -218,4 +220,5 @@ def main():
     # Analyze results     
     results(answers1, answers2)
 
-main()
+if __name__ == "__main__":
+    main()
